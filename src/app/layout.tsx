@@ -38,14 +38,14 @@ export default function RootLayout({
 			<head />
 			<body
 				className={clsx(
-					"min-h-screen bg-background font-sans antialiased",
+					"min-h-screen  font-sans antialiased  bg-background",
 					fontSans.variable
 				)}
 			>
 				<Providers themeProps={{ attribute: "data-theme", defaultTheme: "system" }}>
-					<div className="relative flex flex-col h-screen">
+					<div className="relative flex flex-col ">
 						<Navbar />
-						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow ">
 							{children}
 						</main>
 						<footer className="w-full flex items-center justify-center py-3">
@@ -56,7 +56,7 @@ export default function RootLayout({
 								title="nextui.org homepage"
 							>
 								<span className="text-default-600">Powered by</span>
-								<p className="text-primary">NextUI</p>
+								<p className="text-primary">NextUI + ShadCN + DaisyUI</p>
 							</Link>
 						</footer>
 					</div>

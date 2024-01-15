@@ -1,15 +1,16 @@
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
+import { Code } from "@nextui-org/code";
+import { Button as NextButton } from "@nextui-org/button";
+
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import NextCard from "@/components/nextCards";
+import { ShadcnButton } from "@/components/ShadcnButton";
+import { CardWithForm } from "@/components/ShadCnCards";
 
 export default function Home() {
-	return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+  return (
+    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-4">
       <div className="inline-block max-w-lg text-center justify-center">
         <h1 className={title()}>Make&nbsp;</h1>
         <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
@@ -22,145 +23,95 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          href={siteConfig.links.docs}
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-        >
-          Documentation
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
-        <Button variant="destructive">Destructive</Button>
-        <button className="btn">Button</button>
-        <button className="btn btn-neutral">Neutral</button>
-        <button className="btn btn-primary">Primary</button>
-        <button className="btn btn-secondary">Secondary</button>
-        <button className="btn btn-accent">Accent</button>
-        <button className="btn btn-ghost">Ghost</button>
-        <button className="btn btn-link">Link</button>
-        <button className="btn btn-outline">Default</button>
-        <button className="btn btn-outline btn-primary">Primary</button>
-        <button className="btn btn-outline btn-secondary">Secondary</button>
-        <button className="btn btn-outline btn-accent">Accent</button>
-        <button className="btn btn-info">Info</button>
-        <button className="btn btn-success">Success</button>
-        <button className="btn btn-warning">Warning</button>
-        <button className="btn btn-error">Error</button>
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+        <div>
+          <h2 className=" text-3xl font-semibold mb-4 text-center">
+            NextUI Components
+          </h2>
+          <div className=" grid grid-cols-3 gap-4">
+            <NextButton color="default">Default</NextButton>
+            <NextButton color="primary">Primary</NextButton>
+            <NextButton color="secondary">Secondary</NextButton>
+            <NextButton color="success">Success</NextButton>
+            <NextButton color="warning">Warning</NextButton>
+          </div>
+          <div className="mt-4">
+            <NextCard />
+          </div>
+        </div>
+        <div>
+          <h2 className=" text-3xl font-semibold mb-4 text-center">
+            Daisy Ui Components
+          </h2>
+          <div className=" grid grid-cols-3 gap-4">
+            <button className="btn">Button</button>
+            <button className="btn btn-neutral">Neutral</button>
+            <button className="btn btn-primary">Primary</button>
+            <button className="btn btn-secondary">Secondary</button>
+            <button className="btn btn-accent">Accent</button>
+            <button className="btn btn-ghost">Ghost</button>
+          </div>
+          <div className="mt-4">
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <div className="card-body">
+                <h2 className="card-title">Card title!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Buy Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="stats shadow mt-4">
+            <div className="stat">
+              <div className="stat-figure text-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+             
+            </div>
+
+            <div className="stat">
+              <div className="stat-figure text-secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block w-8 h-8 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+              </div>
+              <div className="stat-title">Page Views</div>
+              <div className="stat-value text-primary">2.6M</div>
+              <div className="stat-desc">21% more than last month</div>
+            </div>
+          </div>
+        </div>
+        <div>
+        <h2 className=" text-3xl font-semibold mb-4 text-center">
+            Shadcn Components
+          </h2>
+          <ShadcnButton/>
+          <CardWithForm/>
+        </div>
       </div>
-      <ul className="timeline">
-        <li>
-          <div className="timeline-start">1984</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box">
-            First Macintosh computer
-          </div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">1998</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box">iMac</div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">2001</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box">iPod</div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">2007</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box">iPhone</div>
-          <hr />
-        </li>
-        <li>
-          <hr />
-          <div className="timeline-start">2015</div>
-          <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="timeline-end timeline-box">Apple Watch</div>
-        </li>
-      </ul>
       <div className="mt-8">
         <Snippet hideSymbol hideCopyButton variant="flat">
           <span>
